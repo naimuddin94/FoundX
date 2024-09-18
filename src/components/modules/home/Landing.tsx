@@ -15,7 +15,7 @@ export default function Landing() {
             placeholder="Search..."
             size="lg"
             startContent={
-              <SearchIcon className="pointer-events-none flex-shrink-0 text-base text-default-400" />
+              <SearchIcon className="pointer-events-none flex-shrink-0 text-base text-default-500" />
             }
             type="text"
           />
