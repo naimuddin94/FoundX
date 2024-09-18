@@ -21,10 +21,12 @@ export default function FXForm({
 }: IProps) {
   const formConfig: formConfig = {};
 
+  // set default values if necessary
   if (!!defaultValues) {
     formConfig["defaultValues"] = defaultValues;
   }
 
+  // set resolver function if necessary
   if (!!resolver) {
     formConfig["resolver"] = resolver;
   }
