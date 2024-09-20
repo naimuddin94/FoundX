@@ -10,12 +10,13 @@ const roleBasedRoutes = {
   ADMIN: [/^\/admin/],
 };
 
-const user = {
-  name: "admin",
-  token: "token",
-  role: "USER",
-};
+const user = null;
 
+// const user = {
+//   name: "admin",
+//   token: "token",
+//   role: "USER",
+// };
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
