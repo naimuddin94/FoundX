@@ -1,10 +1,15 @@
+"use client";
+
 import {
   createContext,
   Dispatch,
   ReactNode,
   SetStateAction,
+  useContext,
+  useEffect,
   useState,
 } from "react";
+import { getCurrentUser } from "../services/AuthService";
 import { IUser } from "../types";
 
 interface IUserContextValues {
@@ -16,9 +21,19 @@ interface IUserContextValues {
 
 const UserContext = createContext<IUserContextValues | null>(null);
 
-const userProvider = ({ children }: { children: ReactNode }) => {
+const UserProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const handleUser = async () => {
+    const user = await getCurrentUser();
+    setUser(user);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    handleUser();
+  }, [isLoading]);
 
   const value = {
     user,
@@ -30,4 +45,14 @@ const userProvider = ({ children }: { children: ReactNode }) => {
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
-export default userProvider;
+export const useUser = () => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error("userUser must be used within the the UserProvider");
+  }
+
+  return context;
+};
+
+export default UserProvider;
