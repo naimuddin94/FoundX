@@ -4,6 +4,7 @@ import { ThemeSwitch } from "@/src/components/UI/theme-switch";
 import { Logo } from "@/src/components/icons";
 import { siteConfig } from "@/src/config/site";
 import { useUser } from "@/src/context/user.provider";
+import { Button } from "@nextui-org/button";
 import { Link } from "@nextui-org/link";
 import {
   NavbarBrand,
@@ -60,9 +61,11 @@ export const Navbar = () => {
             <NavbarDropdown />
           </NavbarItem>
         ) : (
-          <NavbarItem className="hidden sm:flex gap-2">
-            <NextLink href="/login">Login</NextLink>
-          </NavbarItem>
+          <Button size="sm">
+            <NavbarItem className="hidden sm:flex gap-2">
+              <NextLink href="/login">Login</NextLink>
+            </NavbarItem>
+          </Button>
         )}
       </NavbarContent>
 
