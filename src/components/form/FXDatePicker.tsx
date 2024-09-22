@@ -20,7 +20,7 @@ const FXDatePicker = ({
           value={value}
           {...fields}
           label={label}
-          className="max-w-[284px]"
+          className="min-w-full sm:min-w-[225px]"
         />
       )}
     />
