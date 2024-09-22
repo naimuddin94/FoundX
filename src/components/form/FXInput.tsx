@@ -35,6 +35,7 @@ export default function FXInput({
       required={required}
       type={type}
       label={label}
+      className="min-w-full sm:min-w-[225px]"
     />
   );
 }
