@@ -1,5 +1,6 @@
 "use client";
 
+import FXDatePicker from "@/src/components/form/FXDatePicker";
 import FXInput from "@/src/components/form/FXInput";
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/divider";
@@ -26,6 +27,7 @@ export default function CreatePost() {
       questions: data.questions.map(
         (que: { name: string; value: string }) => que.value
       ),
+      
     };
     console.log(postData);
   };
@@ -37,8 +39,9 @@ export default function CreatePost() {
   return (
     <div>
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           <FXInput name="title" size="sm" label="Title" />
+          <FXDatePicker name="dateFound" label="Found Date" size="sm" />
           <Divider className="my-5" />
           <div className="flex justify-between items-center mb-3">
             <h1 className="text-xl">Owner Verification Question</h1>
