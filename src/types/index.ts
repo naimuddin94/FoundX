@@ -46,10 +46,11 @@ export interface IUser {
   __v?: number;
 }
 
-export interface IInputProps{
+export interface IInputProps {
   variant?: "flat" | "bordered" | "faded" | "underlined";
   size?: "sm" | "md" | "lg";
   required?: boolean;
+  disabled?: boolean;
   type?: string;
   label: string;
   name: string;
