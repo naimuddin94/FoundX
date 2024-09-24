@@ -11,8 +11,6 @@ import { useUser } from "@/src/context/user.provider";
 const Sidebar = () => {
   const { user } = useUser();
 
-  console.log(user);
-
   return (
     <div>
       <div className="rounded-xl bg-default-100 p-2">
