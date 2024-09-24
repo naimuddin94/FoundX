@@ -1,5 +1,6 @@
 import { IInputProps } from "@/src/types";
-import { Select, SelectSection, SelectItem } from "@nextui-org/select";
+import { Select, SelectItem } from "@nextui-org/select";
+import { useFormContext } from "react-hook-form";
 
 interface IProps extends IInputProps {
   options: {
@@ -8,15 +9,26 @@ interface IProps extends IInputProps {
   }[];
 }
 
-const FXSelect = ({ options, label, name, variant = "bordered" }: IProps) => {
+export default function FXSelect({
+  options,
+  name,
+  label,
+  variant = "bordered",
+  disabled,
+}: IProps) {
+  const { register } = useFormContext();
+
   return (
     <Select
+      {...register(name)}
+      className="min-w-full sm:min-w-[225px]"
+      isDisabled={disabled}
       label={label}
-      className="max-w-xs"
+      variant={variant}
     >
-      {options?.map(option=>(<SelectItem>{option.label}</SelectItem>))}
+      {options.map((option) => (
+        <SelectItem key={option.key}>{option.label}</SelectItem>
+      ))}
     </Select>
   );
-};
-
-export default FXSelect;
+}
