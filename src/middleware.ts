@@ -12,11 +12,6 @@ const roleBasedRoutes = {
 };
 
 
-// const user = {
-//   name: "admin",
-//   token: "token",
-//   role: "USER",
-// };
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
